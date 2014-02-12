@@ -13,6 +13,4 @@
 module.exports = (robot) ->
 
   robot.respond /kitty/i, (msg) ->
-    msg.http("http://thecatapi.com/api/images/get?format=src&type=gif")
-      .get() (err, res, body) ->
-        msg.send JSON.parse(body).pug
+    msg.send "http://thecatapi.com/api/images/get"
