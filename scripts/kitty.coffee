@@ -13,4 +13,4 @@
 module.exports = (robot) ->
 
   robot.respond /kitty/i, (msg) ->
-    msg.send "http://thecatapi.com/api/images/get"
+    msg.send "http://thecatapi.com/api/images/get?format=src"
