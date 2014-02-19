@@ -13,5 +13,6 @@
 module.exports = (robot) ->
 
   robot.respond /kitty/i, (msg) ->
-  	
-    msg.send "http://thecatapi.com/api/images/get?format=src"
+  	msg.http("http://thecatapi.com/api/images/get?format=src")
+      .get() (err, res, body) ->
+        msg.send body
