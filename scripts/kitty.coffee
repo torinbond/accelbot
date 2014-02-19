@@ -13,6 +13,10 @@
 module.exports = (robot) ->
 
   robot.respond /kitty/i, (msg) ->
-  	http = require 'http'
-		http.get { host: 'http://thecatapi.com/api/images/get?format=xml' }, (res) ->
-    msg.send "res.statusCode"
+  	var xmlHttp = null
+
+    xmlHttp = new XMLHttpRequest()
+    xmlHttp.open( "GET", 'http://thecatapi.com/api/images/get?format=xml', false )
+    xmlHttp.send( null )
+
+    msg.send "xmlHttp.responseText"
