@@ -13,4 +13,6 @@
 module.exports = (robot) ->
 
   robot.respond /kitty/i, (msg) ->
-    msg.send "<img src='http://thecatapi.com/api/images/get?format=src'></img>"
+  	http = require 'http'
+		http.get { host: 'http://thecatapi.com/api/images/get?format=xml' }, (res) ->
+    msg.send "res.statusCode"
